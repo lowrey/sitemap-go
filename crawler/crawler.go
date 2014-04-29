@@ -5,8 +5,8 @@ import (
 	"regexp"
 	"strings"
 	//"container/list"
+	"fmt"
 	"log"
-    "fmt"
 	"os"
 )
 
@@ -115,7 +115,7 @@ func (c *Crawler) isValidUrl(u *url.URL) bool {
 	if u.Host != c.startUrl.Host {
 		return false
 	}
-    //TODO remove
+	//TODO remove
 	if strings.Contains(u.Path, u.Host) {
 		return false
 	}
@@ -141,7 +141,7 @@ func (urlSet UrlSet) WriteHtml(filename string) error {
 	}
 	defer f.Close()
 	for _, link := range urlSet.Get() {
-        a := fmt.Sprintf("<a href='%s'>%s</a><br/>\n", link, link)
+		a := fmt.Sprintf("<a href='%s'>%s</a><br/>\n", link, link)
 		f.WriteString(a)
 	}
 	return nil

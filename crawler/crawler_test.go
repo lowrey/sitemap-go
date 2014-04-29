@@ -6,9 +6,9 @@ import (
 )
 
 const (
-	testSite string = "http://httpbin.org/"
+	testSite    string = "http://httpbin.org/"
 	testSubSite string = "http://httpbin.org/user-agent"
-	testFilter string = "user"
+	testFilter  string = "user"
 )
 
 func TestUrlSetAddsOnlyOnce(t *testing.T) {

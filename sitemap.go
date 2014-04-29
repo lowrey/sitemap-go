@@ -1,9 +1,9 @@
 package main
 
 import (
-	"lowrey.me/sitemap-go/crawler"
-	"fmt"
 	"flag"
+	"fmt"
+	"lowrey.me/sitemap-go/crawler"
 	"net/url"
 )
 
@@ -14,9 +14,9 @@ func main() {
 	flag.Parse()
 	ur, _ := url.Parse(*u)
 	c, _ := crawler.NewCrawler(*u, *ignoreFilter)
-    outfile := *out
-    if outfile == "" {
-        outfile = fmt.Sprintf("%s.html", ur.Host) 
-    }
+	outfile := *out
+	if outfile == "" {
+		outfile = fmt.Sprintf("%s.html", ur.Host)
+	}
 	c.GetAllLinks().WriteHtml(outfile)
 }

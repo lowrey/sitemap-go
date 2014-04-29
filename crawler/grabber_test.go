@@ -20,7 +20,7 @@ func TestLinksAreNotEmpty(t *testing.T) {
 func TestRelativeUrlMadeAbsolute(t *testing.T) {
 	c, _ := NewGrabber(testSite)
 	url, _ := c.transformRelativeUrl("./test/")
-	if url.String() != testSite + "test/" {
+	if url.String() != testSite+"test/" {
 		t.Error("Unexpected value calculating relative link")
 	}
 }
