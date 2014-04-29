@@ -1,4 +1,4 @@
-# sitemap.go
+# sitemap-go
 Build
 -----
     go get github.com/PuerkitoBio/goquery
@@ -25,7 +25,7 @@ Output of each URL visited is written to stdout as it is processed.  It will als
 Automated unit testing has been created for the crawler package. All tests can be using the following *Go Tool* command in the root of the git repo:  
 	go test ./crawler
 
-### Externl libraries 
+### External libraries 
 * [goquery](http://github.com/PuerkitoBio/goquery/)
 
 License
