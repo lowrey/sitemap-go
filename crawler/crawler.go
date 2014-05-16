@@ -10,6 +10,15 @@ import (
 	"os"
 )
 
+type outputT int
+
+//enums for different outputs
+const (
+	logOut outputT = iota
+	fmtOut
+	noneOut
+)
+
 type UrlSet map[string]bool
 
 //TODO trim trailing slashes?
@@ -35,7 +44,7 @@ type Crawler struct {
 	filters      []string
 	useQueries   bool
 	useFragments bool
-	useLog       bool
+	progressOut  outputT
 }
 
 func NewCrawler(startUrl string, filter string) (*Crawler, error) {
@@ -49,7 +58,7 @@ func NewCrawler(startUrl string, filter string) (*Crawler, error) {
 	c.filters = strings.Fields(filter)
 	c.useQueries = false
 	c.useFragments = false
-	c.useLog = true
+	c.progressOut = logOut
 	return c, nil
 }
 
@@ -90,8 +99,11 @@ func (crawler *Crawler) GetAllLinks() UrlSet {
 				urlSet.Add(u)
 				//havent seen the url before
 				if len(urlSet) > prev {
-					if crawler.useLog {
+					switch crawler.progressOut {
+					case logOut:
 						log.Println("Visit: ", u)
+					case fmtOut:
+						fmt.Println(u)
 					}
 					go getUrls(u.String(), jobs, urls)
 				}
