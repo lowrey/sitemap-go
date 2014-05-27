@@ -7,11 +7,13 @@ Build
 Usage
 ------
 * Crawl a site and output a list of pages visited
-    go run sitemap.go -url=http://httpbin.org/
+	`go run sitemap.go -url=http://httpbin.org/`
+
 * Limit the pages visited by a regex
-    go run sitemap.go -url=http://httpbin.org/ -ignore=".*\/\d+ gzip"
+    `go run sitemap.go -url=http://httpbin.org/ -ignore=".*\/\d+ gzip"`
+
 * Output links to a file
-    go run sitemap.go -url=http://httpbin.org/ -out="example.html"
+    `go run sitemap.go -url=http://httpbin.org/ -out="example.html"`
 
 
 Design
